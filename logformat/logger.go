@@ -3,7 +3,7 @@
  * @Author: xxbandy @http://xxbandy.github.io 
  * @Email:
  * @Create Date: 2018-08-24 06:08:45
- * @Last Modified: 2018-08-24 06:08:24
+ * @Last Modified: 2018-08-28 19:08:02
  * @Description:
  */
 package logformat
@@ -35,7 +35,7 @@ func LoggerInit(logfile,logLevel string) *log.Logger{
     log.SetFlags(log.Ldate | log.Ltime |log.Lmicroseconds | log.Lshortfile)
 
     log.SetPrefix("xxbandy")
-
+    //os.Stdout could write a console and logfile.
     format := log.New(io.MultiWriter(file,os.Stdout), logLevel, log.Ldate | log.Ltime |log.Lmicroseconds | log.Lshortfile)
     return format 
 }

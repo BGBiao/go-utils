@@ -34,7 +34,7 @@ func LoggerInit(logfile,logLevel string) *log.Logger{
     //define the log format 
     log.SetFlags(log.Ldate | log.Ltime |log.Lmicroseconds | log.Lshortfile)
 
-    log.SetPrefix("xxbandy")
+    //log.SetPrefix("xxbandy")
     //os.Stdout could write a console and logfile.
     format := log.New(io.MultiWriter(file,os.Stdout), logLevel, log.Ldate | log.Ltime |log.Lmicroseconds | log.Lshortfile)
     return format 

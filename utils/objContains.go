@@ -1,4 +1,4 @@
-package go-utils
+package utils
 import (
   "reflect"
 )

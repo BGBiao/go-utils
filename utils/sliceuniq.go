@@ -3,7 +3,7 @@
  * @Author: xxbandy @http://xxbandy.github.io 
  * @Email:
  * @Create Date: 2018-10-17 10:10:02
- * @Last Modified: 2018-10-17 11:10:50
+ * @Last Modified: 2018-10-17 11:10:11
  * @Description:
  */
 package utils
@@ -11,7 +11,8 @@ import (
 		"reflect"
 )
 
-func RemovalSlice(a []string) (ret []string) {
+//先排序后去重
+func RemovalInt64(a []int64) (ret []int64) {
     //var ret  []int64{}
     for i := range a{
         flag := true

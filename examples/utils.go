@@ -14,8 +14,10 @@ func main() {
     intlist := []int{1,23,13,20,10,1,23,10}
     sort.Strings(list)
     sort.Ints(intlist)
-    removelist := utils.Duplicate(list)
-    removeintlist := utils.Duplicate(intlist)
+    //removelist := utils.Duplicate(list)
+    //removeintlist := utils.Duplicate(intlist)
+    removelist := utils.RemovalSlice(list)
+    removeintlist := utils.RemovalSlice(intlist)
     fmt.Println(list,removelist,intlist,removeintlist)
 
     abc := utils.NewStringSet()

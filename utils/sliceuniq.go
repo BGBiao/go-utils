@@ -3,7 +3,7 @@
  * @Author: xxbandy @http://xxbandy.github.io 
  * @Email:
  * @Create Date: 2018-10-17 10:10:02
- * @Last Modified: 2018-10-17 11:10:11
+ * @Last Modified: 2018-10-17 11:10:31
  * @Description:
  */
 package utils
@@ -14,6 +14,21 @@ import (
 //先排序后去重
 func RemovalInt64(a []int64) (ret []int64) {
     //var ret  []int64{}
+    for i := range a{
+        flag := true
+        for j := range ret {
+            if a[i] == ret[j] {
+                flag = false
+                break
+            }
+        }
+        if flag {
+            ret = append(ret,a[i])
+        }
+    }
+    return ret
+}
+func RemovalString(a []string) (ret []string) {
     for i := range a{
         flag := true
         for j := range ret {

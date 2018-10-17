@@ -3,10 +3,13 @@
  * @Author: xxbandy @http://xxbandy.github.io 
  * @Email:
  * @Create Date: 2018-10-17 10:10:02
- * @Last Modified: 2018-10-17 10:10:00
+ * @Last Modified: 2018-10-17 11:10:50
  * @Description:
  */
 package utils
+import (
+		"reflect"
+)
 
 func RemovalSlice(a []string) (ret []string) {
     //var ret  []int64{}
@@ -23,4 +26,16 @@ func RemovalSlice(a []string) (ret []string) {
         }
     }
     return ret
+}
+
+//使用interface{}类型对slice进行排序[使用之之前需要把slice或list使用sort.Strings和sort.Ints进行转换]
+func Duplicate(a interface{}) (ret []interface{}) {
+   va := reflect.ValueOf(a)
+   for i := 0; i < va.Len(); i++ {
+      if i > 0 && reflect.DeepEqual(va.Index(i-1).Interface(), va.Index(i).Interface()) {
+         continue
+      }
+      ret = append(ret, va.Index(i).Interface())
+   }
+   return ret
 }

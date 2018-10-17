@@ -2,6 +2,7 @@ package main
 import (
     "github.com/xxbandy/go-utils/utils"
     "fmt"
+    "sort"
 )
 
 func main() {
@@ -9,8 +10,13 @@ func main() {
     if utils.Contains("biao",list)   {
         fmt.Printf("%s is in %s\n","biao",list)
     }
-    removelist := utils.RemovalSlice(list)
-    fmt.Println(list,removelist)
+    //emovelist := utils.RemovalSlice(list)
+    intlist := []int{1,23,13,20,10,1,23,10}
+    sort.Strings(list)
+    sort.Ints(intlist)
+    removelist := utils.Duplicate(list)
+    removeintlist := utils.Duplicate(intlist)
+    fmt.Println(list,removelist,intlist,removeintlist)
 
     abc := utils.NewStringSet()
     abc.Add("xxbandy","bgbiao","biaoge","bgbiao")

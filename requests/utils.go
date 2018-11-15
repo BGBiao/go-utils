@@ -3,7 +3,7 @@
  * @Author: xxbandy @http://xxbandy.github.io 
  * @Email:
  * @Create Date: 2018-11-14 12:11:22
- * @Last Modified: 2018-11-15 18:11:05
+ * @Last Modified: 2018-11-15 19:11:33
  * @Description:
  */
 package requests
@@ -99,15 +99,3 @@ func (s *reqApi) Get(uri string) ([]byte,error) {
 
 
 
-/*
-func main() {
-    //baseurl := NewApi("http://dataapi.jd.com/v1/app?tenant=jrpe&username=xuxuebiao")
-    baseurl := NewApi("http://dataapi.jd.com")
-		token := `?tenant=jrpe&username=xuxuebiao`
-    createreq,_ := baseurl.GetRequest("POST","/v1/app"+token,strings.NewReader("app=conda-repo"))
-    createreq.Header.Add("Connection","keep-alive")
-    respbody,_ := NewClient(createreq)
-    fmt.Println(string(respbody))
-}
-
-*/

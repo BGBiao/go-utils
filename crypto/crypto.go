@@ -41,4 +41,3 @@ func HmacSha1(key, data string) string {
 	h.Write([]byte(data))
 	return hex.EncodeToString(h.Sum(nil))
 }
-

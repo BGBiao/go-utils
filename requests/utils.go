@@ -3,7 +3,7 @@
  * @Author: xxbandy @http://xxbandy.github.io 
  * @Email:
  * @Create Date: 2018-11-14 12:11:22
- * @Last Modified: 2018-11-15 19:11:33
+ * @Last Modified: 2018-11-15 19:11:55
  * @Description:
  */
 package requests
@@ -14,7 +14,7 @@ import (
     "io"
     "time"
     "io/ioutil"
-    "strings"
+    _ "strings"
 
 )
 

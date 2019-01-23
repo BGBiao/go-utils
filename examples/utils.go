@@ -17,8 +17,8 @@ func main() {
 	sort.Ints(intlist)
 	//removelist := utils.Duplicate(list)
 	//removeintlist := utils.Duplicate(intlist)
-	removelist := utils.RemovalSlice(list)
-	removeintlist := utils.RemovalSlice(intlist)
+	removelist := utils.RemovalString(list)
+	removeintlist := utils.RemovalInt(intlist)
 	fmt.Println(list, removelist, intlist, removeintlist)
 
 	abc := utils.NewStringSet()
@@ -26,4 +26,8 @@ func main() {
 	setlist := abc.List()
 	sortsetlist := abc.SortList()
 	fmt.Println(setlist, sortsetlist)
+
+  fmt.Printf("slice类型:%v %T",list,list)
+  newlist,_ := utils.GetBytes(list)
+  fmt.Printf("转换后的[]byte类型:%v %T",newlist,newlist)
 }

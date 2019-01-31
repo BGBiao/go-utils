@@ -3,7 +3,7 @@
  * @Author: xxbandy @http://xxbandy.github.io 
  * @Email:
  * @Create Date: 2019-01-31 12:01:18
- * @Last Modified: 2019-01-31 12:01:21
+ * @Last Modified: 2019-01-31 12:01:34
  * @Description:
  */
 
@@ -11,7 +11,6 @@ package utils
 import (
 		"time"
     "fmt"
-    "encoding/gob"
     "os"
 )
 
@@ -27,7 +26,6 @@ func WriteWithFileWrite(name, content string) {
     fileObj, err := os.OpenFile(name, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0644)
     if err != nil {
         fmt.Println("Failed to open the file", err.Error())
-        LogError(err.Error(),name,"WriteWithFile")
         os.Exit(2)
     }
     defer fileObj.Close()

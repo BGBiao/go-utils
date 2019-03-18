@@ -3,7 +3,7 @@
  * @Author: xxbandy @http://xxbandy.github.io
  * @Email:
  * @Create Date: 2018-11-15 18:11:15
- * @Last Modified: 2018-11-15 23:11:12
+ * @Last Modified: 2019-03-18 20:03:06
  * @Description:
  */
 package main
@@ -47,7 +47,7 @@ func main() {
 	createreq.Header.Add("Connection", "keep-alive")
 	//注意:如果增加UA,会根据UA判断返回那种数据格式，比如curl会返回接口类型数据,不加这个UA，会返回html
 	createreq.Header.Add("User-Agent", "curl")
-	data, _ := requests.NewClient(createreq)
+	data, _ := requests.NewClient(createreq,30*time.Second)
 	fmt.Println(string(data))
 
 	//2. base get

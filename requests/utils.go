@@ -3,7 +3,7 @@
 * @Author: xxbandy @http://xxbandy.github.io
 * @Email:
 * @Create Date: 2018-11-14 12:11:22
-* @Last Modified: 2018-11-15 22:11:27
+* @Last Modified: 2019-03-18 20:03:16
 * @Description:
 type Response struct {
    Status     string // e.g. "200 OK"
@@ -80,9 +80,13 @@ func (s *reqApi) GetRequest(method string, uri string, data io.Reader) (*http.Re
 }
 
 //初始化http客户端
-func NewClient(req *http.Request) ([]byte, error) {
+  // 需要注意的是，如果在超时时间内未完成请求，直接defer会进行panic
+  // 如果不主动进行defer关闭连接，就会主动抛出清请求超时的异常
+  // 因此这里的超时时间需要进行合理的设置 30*time.Second
+
+func NewClient(req *http.Request,timeout time.Duration) ([]byte, error) {
 	client := &http.Client{
-		Timeout: 5 * time.Second,
+		Timeout: timeout,
 	}
 	resp, respErr := client.Do(req)
 	defer resp.Body.Close()

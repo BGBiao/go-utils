@@ -3,7 +3,7 @@
 * @Author: xxbandy @http://xxbandy.github.io
 * @Email:
 * @Create Date: 2018-11-14 12:11:22
-* @Last Modified: 2019-03-18 20:03:16
+* @Last Modified: 2019-05-06 19:05:04
 * @Description:
 type Response struct {
    Status     string // e.g. "200 OK"
@@ -89,7 +89,10 @@ func NewClient(req *http.Request,timeout time.Duration) ([]byte, error) {
 		Timeout: timeout,
 	}
 	resp, respErr := client.Do(req)
-	defer resp.Body.Close()
+  // 重定向可能导致resp为nil，无法执行resp.Body.Close()而panic
+  if resp != nil {
+	    defer resp.Body.Close()
+  }
 	if respErr != nil {
 		return []byte{}, fmt.Errorf("%s", respErr)
 	}
